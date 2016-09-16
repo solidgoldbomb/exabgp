@@ -75,8 +75,9 @@ class Attribute (object):
 		TUNNEL_ENCAP       = 0x17  # 23
 		AIGP               = 0x1A  # 26
 
-		# draft-heitz-idr-large-community-03
-		LARGE_COMMUNITY    = 0x29  # 41
+		# draft-hares-idr-common-header
+		# NOTE: TEMPORARY CODEPOINT UNTIL IANA EARLY ALLOCATION
+		COMMON_HEADER      = 0xcc  # 204
 
 		INTERNAL_NAME      = 0xFFFC
 		INTERNAL_WITHDRAW  = 0xFFFD
@@ -93,7 +94,7 @@ class Attribute (object):
 			ATOMIC_AGGREGATE:   'atomic-aggregate',
 			AGGREGATOR:         'aggregator',
 			COMMUNITY:          'community',
-			LARGE_COMMUNITY:    'large-community',
+			LARGE_COMMUNITY:    'large-community',  ## unsure what to do here since its under common header
 			ORIGINATOR_ID:      'originator-id',
 			CLUSTER_LIST:       'cluster-list',
 			MP_REACH_NLRI:      'mp-reach-nlri',    # multi-protocol reacheable nlri
