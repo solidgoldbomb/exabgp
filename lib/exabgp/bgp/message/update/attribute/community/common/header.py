@@ -50,7 +50,7 @@ class CommonHeader (Attribute):
 
 	def __init__ (self, common_header):
 		self.common_header = common_header
-        self._str = "%d:%d:%d" % unpack('!HHL', self.common_header)
+		self._str = "%d:%d:%d" % unpack('!HHL', self.common_header)
 
 	def __eq__ (self, other):
 		return self.common_header == other.common_header
@@ -65,19 +65,19 @@ class CommonHeader (Attribute):
 	def pack (self, negotiated=None):
 		return self.common_header
 
-    def _ctype (self, transitive=True):
-        return pack(
-            '!HHL',
-            self.COMMUNITY_TYPE if transitive else self.COMMUNITY_TYPE | self.NON_TRANSITIVE,
-            self.COMMUNITY_SUBTYPE
-        )
+	def _ctype (self, transitive=True):
+		return pack(
+			'!HHL',
+			self.COMMUNITY_TYPE if transitive else self.COMMUNITY_TYPE | self.NON_TRANSITIVE,
+			self.COMMUNITY_SUBTYPE
+		)
 
 	def __repr__ (self):
 		h = 0x00
-        for byte in self.common_header:
-            h <<= 8
-            h += ord(byte)
-        return "0x%016X" % h
+		for byte in self.common_header:
+			h <<= 8
+			h += ord(byte)
+		return "0x%016X" % h
 
 	def __len__ (self):
 		return 16
